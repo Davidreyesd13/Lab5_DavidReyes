@@ -1,20 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package lab5_davidreyes;
 
-/**
- *
- * @author david
- */
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    static ArrayList<Personaje> list=new ArrayList();
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -26,21 +21,156 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_Agregar = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jt_nombre = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jt_poder = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jt_fisico = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jt_vida = new javax.swing.JTextField();
+        jt_mental = new javax.swing.JTextField();
+        jt_debilidad = new javax.swing.JTextField();
+        jt_fuerza = new javax.swing.JTextField();
+        jcb_universo = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jd_listar = new javax.swing.JDialog();
+        jd_simular = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jb_agregar = new javax.swing.JButton();
+        jb_Listar = new javax.swing.JButton();
+        jb_Simular = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        jd_Agregar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField1.setEditable(false);
+        jTextField1.setText("Nombre:");
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 70, -1));
+        jPanel2.add(jt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 180, -1));
+
+        jTextField3.setEditable(false);
+        jTextField3.setText("Poder");
+        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanel2.add(jt_poder, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 180, -1));
+
+        jTextField5.setEditable(false);
+        jTextField5.setText("Debilidad");
+        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 70, -1));
+        jPanel2.add(jt_fisico, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 180, -1));
+
+        jTextField7.setEditable(false);
+        jTextField7.setText("Universo: ");
+        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 70, -1));
+
+        jTextField8.setEditable(false);
+        jTextField8.setText("Fuerza");
+        jPanel2.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 50, -1));
+
+        jButton1.setText("Agregar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 160, -1));
+
+        jTextField9.setEditable(false);
+        jTextField9.setText("Fisica");
+        jPanel2.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 50, -1));
+
+        jTextField10.setEditable(false);
+        jTextField10.setText("Mental");
+        jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 60, -1));
+
+        jTextField11.setEditable(false);
+        jTextField11.setText("Vida");
+        jPanel2.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 50, -1));
+        jPanel2.add(jt_vida, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 180, -1));
+        jPanel2.add(jt_mental, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 180, -1));
+        jPanel2.add(jt_debilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 180, -1));
+        jPanel2.add(jt_fuerza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 180, -1));
+
+        jcb_universo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Marvel", "DC", "Capcom", "Mortal Kombat" }));
+        jPanel2.add(jcb_universo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab5_davidreyes/ca326900a76f570791fc897570458e8f.jpg"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 538, 514));
+
+        jd_Agregar.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 520));
+
+        jd_listar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jd_simular.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jb_agregar.setText("Agregar");
+        jb_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(jb_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 250, -1));
+
+        jb_Listar.setText("Listar");
+        jPanel1.add(jb_Listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 250, -1));
+
+        jb_Simular.setText("Simular");
+        jPanel1.add(jb_Simular, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 250, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab5_davidreyes/ca326900a76f570791fc897570458e8f.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        String universo =Integer.toString(jcb_universo.getSelectedIndex());
+        list.add(new Personaje(jt_nombre.getText(), jt_debilidad.getText(),universo,jt_poder.getText() ,Integer.parseInt(jt_fuerza.getText()),Integer.parseInt(jt_fuerza.getText()) ,Integer.parseInt(jt_mental.getText()), Integer.parseInt(jt_vida.getText())));
+        JOptionPane.showMessageDialog(this, "Agregado con exito");
+        jt_debilidad.setText("");
+        jt_fisico.setText("");
+        jt_fuerza.setText("");
+        jt_mental.setText("");
+        jt_nombre.setText("");
+        jt_poder.setText("");
+        jt_vida.setText("");
+        jd_Agregar.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jb_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarMouseClicked
+        // TODO add your handling code here:
+        jd_Agregar.pack();
+        jd_Agregar.setVisible(true);
+        jd_Agregar.setLocationRelativeTo(this);
+        
+    }//GEN-LAST:event_jb_agregarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -78,5 +208,32 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
+    private javax.swing.JButton jb_Listar;
+    private javax.swing.JButton jb_Simular;
+    private javax.swing.JButton jb_agregar;
+    private javax.swing.JComboBox<String> jcb_universo;
+    private javax.swing.JDialog jd_Agregar;
+    private javax.swing.JDialog jd_listar;
+    private javax.swing.JDialog jd_simular;
+    private javax.swing.JTextField jt_debilidad;
+    private javax.swing.JTextField jt_fisico;
+    private javax.swing.JTextField jt_fuerza;
+    private javax.swing.JTextField jt_mental;
+    private javax.swing.JTextField jt_nombre;
+    private javax.swing.JTextField jt_poder;
+    private javax.swing.JTextField jt_vida;
     // End of variables declaration//GEN-END:variables
 }
