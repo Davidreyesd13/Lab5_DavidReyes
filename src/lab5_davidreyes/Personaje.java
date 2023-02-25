@@ -19,7 +19,6 @@ public class Personaje {
         this.hp = hp;
     }
 
-
     public String getNombre() {
         return nombre;
     }
@@ -78,7 +77,10 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return  "Poder ->"+poder+"\nFuerza->"+fuerza+"\nHabilidad->"+agilidadfisica+"\nMental->"+agilidadmental+"\nHp->"+hp;
+        return nombre;
     }
 
+    public String toStringn() {
+        return nombre+"\nPoder ->" + poder + "\nFuerza->" + fuerza + "\nHabilidad->" + agilidadfisica + "\nMental->" + agilidadmental + "\nHp->" + hp;
+    }
 }
