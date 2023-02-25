@@ -1,6 +1,8 @@
 package lab5_davidreyes;
 
+import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -59,12 +61,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jd_simular = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jcb_simulacion1 = new javax.swing.JComboBox<>();
+        jcb_simulacion2 = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jl_simlacion1 = new javax.swing.JList<>();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jl_simulacion2 = new javax.swing.JList<>();
         jButton2 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -73,6 +75,16 @@ public class Principal extends javax.swing.JFrame {
         jmp_listar = new javax.swing.JPopupMenu();
         jm_listarp = new javax.swing.JMenuItem();
         jm_remove = new javax.swing.JMenuItem();
+        jd_pelea = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        jt_nombresimular = new javax.swing.JTextField();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jta_batlla = new javax.swing.JTextArea();
+        jb_fuerza = new javax.swing.JButton();
+        jb_mente = new javax.swing.JButton();
+        jb_resistencia = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jb_agregar = new javax.swing.JButton();
         jb_Listar = new javax.swing.JButton();
@@ -195,31 +207,36 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DC", "Marvel", "Capcom", "MK" }));
-        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 300, -1));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DC", "Marvel", "Capcom", "MK" }));
-        jPanel4.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 340, -1));
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        jcb_simulacion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DC", "Marvel", "Capcom", "MK" }));
+        jcb_simulacion1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcb_simulacion1ItemStateChanged(evt);
+            }
         });
-        jScrollPane3.setViewportView(jList1);
+        jPanel4.add(jcb_simulacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 300, -1));
+
+        jcb_simulacion2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DC", "Marvel", "Capcom", "MK" }));
+        jcb_simulacion2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcb_simulacion2ItemStateChanged(evt);
+            }
+        });
+        jPanel4.add(jcb_simulacion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 340, -1));
+
+        jScrollPane3.setViewportView(jl_simlacion1);
 
         jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 300, 260));
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane4.setViewportView(jList2);
+        jScrollPane4.setViewportView(jl_simulacion2);
 
         jPanel4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, 340, 250));
 
         jButton2.setText("Batalla");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 510, 170, -1));
 
         jButton6.setText("Regresar");
@@ -258,6 +275,64 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jmp_listar.add(jm_remove);
+
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jt_nombresimular.setEditable(false);
+        jt_nombresimular.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
+        jPanel5.add(jt_nombresimular, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 150, -1));
+
+        jta_batlla.setColumns(20);
+        jta_batlla.setRows(5);
+        jScrollPane5.setViewportView(jta_batlla);
+
+        jPanel5.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 470, 240));
+
+        jb_fuerza.setText("F");
+        jb_fuerza.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_fuerzaMouseClicked(evt);
+            }
+        });
+        jPanel5.add(jb_fuerza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 50, -1));
+
+        jb_mente.setText("M");
+        jb_mente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_menteMouseClicked(evt);
+            }
+        });
+        jPanel5.add(jb_mente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 50, -1));
+
+        jb_resistencia.setText("R");
+        jb_resistencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_resistenciaMouseClicked(evt);
+            }
+        });
+        jPanel5.add(jb_resistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 60, -1));
+
+        jButton10.setText("Inicio");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 170, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab5_davidreyes/DCVSM.jpg"))); // NOI18N
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+
+        javax.swing.GroupLayout jd_peleaLayout = new javax.swing.GroupLayout(jd_pelea.getContentPane());
+        jd_pelea.getContentPane().setLayout(jd_peleaLayout);
+        jd_peleaLayout.setHorizontalGroup(
+            jd_peleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jd_peleaLayout.setVerticalGroup(
+            jd_peleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -357,8 +432,8 @@ public class Principal extends javax.swing.JFrame {
             Object string = jt_universos.getSelectionPath().getLastPathComponent();
             if (string.toString().equals("DC") || string.toString().equals("Marvel") || string.toString().equals("Capcom") || string.toString().equals("MK")) {
                 jpm_Listar.show(jPanel3, evt.getX(), evt.getY());
-            }else{
-                jmp_listar.show(evt.getComponent(), evt.getX(),evt.getY());
+            } else {
+                jmp_listar.show(evt.getComponent(), evt.getX(), evt.getY());
             }
         }
     }//GEN-LAST:event_jt_universosMouseClicked
@@ -395,7 +470,7 @@ public class Principal extends javax.swing.JFrame {
         Object string = jt_universos.getSelectionPath().getLastPathComponent();
         DefaultListModel modelo
                 = (DefaultListModel) jl_Listar.getModel();
-        
+
         for (int i = 0; i < list.size(); i++) {
             if (string.toString().equals(list.get(i).getNombre())) {
 
@@ -409,11 +484,17 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jm_listarpActionPerformed
 
     private void jm_removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_removeActionPerformed
-        Object string = jt_universos.getSelectionPath().getLastPathComponent();   
+        Object string = jt_universos.getSelectionPath().getLastPathComponent();
         DefaultTreeModel m = (DefaultTreeModel) jt_universos.getModel();
-            m.removeNodeFromParent((MutableTreeNode)string);
-            m.reload();
-            jl_Listar.setModel(new DefaultListModel());
+        m.removeNodeFromParent((MutableTreeNode) string);
+        for (int i = 0; i < list.size(); i++) {
+            if (string.toString().equals(list.get(i).getNombre())) {
+                list.remove(i);
+                break;
+            }
+        }
+        m.reload();
+        jl_Listar.setModel(new DefaultListModel());
 
     }//GEN-LAST:event_jm_removeActionPerformed
 
@@ -440,14 +521,14 @@ public class Principal extends javax.swing.JFrame {
         jt_poder.setText("");
         jt_vida.setText("");
         jd_Agregar.setVisible(false);
-        this.setVisible(true); 
+        this.setVisible(true);
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
         jl_Listar.setModel(new DefaultListModel());
         jd_listar.setVisible(false);
-        this.setVisible(true); 
+        this.setVisible(true);
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
@@ -455,6 +536,225 @@ public class Principal extends javax.swing.JFrame {
         jd_simular.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jcb_simulacion1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_simulacion1ItemStateChanged
+        // TODO add your handling code here:
+        jl_simlacion1.setModel(new DefaultListModel());
+        DefaultListModel modelo
+                = (DefaultListModel) jl_simlacion1.getModel();
+        switch (jcb_simulacion1.getSelectedIndex()) {
+            case 0:
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getUniverso().equals("DC")) {
+                        modelo.addElement(list.get(i).getNombre());
+                    }
+                }
+                break;
+            case 1:
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getUniverso().equals("Marvel")) {
+                        modelo.addElement(list.get(i).getNombre());
+                    }
+                }
+                break;
+            case 2:
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getUniverso().equals("Capcom")) {
+                        modelo.addElement(list.get(i).getNombre());
+                    }
+                }
+                break;
+            case 3:
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getUniverso().equals("MK")) {
+                        modelo.addElement(list.get(i).getNombre());
+                    }
+                }
+                break;
+        }
+        jl_simlacion1.setModel(modelo);
+    }//GEN-LAST:event_jcb_simulacion1ItemStateChanged
+
+    private void jcb_simulacion2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_simulacion2ItemStateChanged
+        // TODO add your handling code here:
+        jl_simulacion2.setModel(new DefaultListModel());
+        DefaultListModel modelo2
+                = (DefaultListModel) jl_simulacion2.getModel();
+        switch (jcb_simulacion2.getSelectedIndex()) {
+            case 0:
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getUniverso().equals("DC")) {
+                        modelo2.addElement(list.get(i).getNombre());
+                    }
+                }
+                break;
+            case 1:
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getUniverso().equals("Marvel")) {
+                        modelo2.addElement(list.get(i).getNombre());
+                    }
+                }
+                break;
+            case 2:
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getUniverso().equals("Capcom")) {
+                        modelo2.addElement(list.get(i).getNombre());
+                    }
+                }
+                break;
+            case 3:
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getUniverso().equals("MK")) {
+                        modelo2.addElement(list.get(i).getNombre());
+                    }
+                }
+                break;
+        }
+        jl_simulacion2.setModel(modelo2);
+    }//GEN-LAST:event_jcb_simulacion2ItemStateChanged
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+
+        if (!jl_simlacion1.isSelectionEmpty() || !jl_simulacion2.isSelectionEmpty()) {
+            jd_pelea.pack();
+            jd_pelea.setVisible(true);
+            jd_pelea.setLocationRelativeTo(this);
+            jd_simular.setVisible(false);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Falta seleccionar un item");
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // TODO add your handling code here:
+        jd_pelea.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jb_fuerzaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_fuerzaMouseClicked
+        // TODO add your handling code here:
+        int pro = 1 + r.nextInt(100);
+        if (turno == 1 && list.get(jl_simulacion2.getSelectedIndex()).getHp() > 0) {
+            jt_nombresimular.setText(jl_simlacion1.getSelectedValue());
+            jt_nombresimular.setForeground(Color.GREEN);
+            if (pro <= 8) {
+                list.get(jl_simulacion2.getSelectedIndex()).setHp(list.get(jl_simulacion2.getSelectedIndex()).getHp() - (list.get(jl_simlacion1.getSelectedIndex()).getAgilidadmental() / 2));
+                batalla = jl_simlacion1.getSelectedValue() + "Ataque Normal " + "Vida actual" + list.get(jl_simulacion2.getSelectedIndex()).getHp() + "Ingremento de vida para" + jl_simlacion1.getSelectedValue()
+                        + list.get(jl_simlacion1.getSelectedIndex()).getHp() / 4 + "\n";
+                jta_batlla.setText(batalla);
+                list.get(jl_simlacion1.getSelectedIndex()).setHp(list.get(jl_simlacion1.getSelectedIndex()).getHp() / 4);
+            } else {
+                list.get(jl_simulacion2.getSelectedIndex()).setHp(list.get(jl_simulacion2.getSelectedIndex()).getHp() - (list.get(jl_simlacion1.getSelectedIndex()).getAgilidadmental() / 2));
+                batalla = jl_simlacion1.getSelectedValue() + "Ataque Normal" + (list.get(jl_simlacion1.getSelectedIndex()).getAgilidadmental() / 2) + "Vida actual" + list.get(jl_simulacion2.getSelectedIndex()).getHp() + "\n";
+                jta_batlla.setText(batalla);
+            }
+            turno = 2;
+        } else if (turno == 2 && list.get(jl_simlacion1.getSelectedIndex()).getHp() > 0) {
+            jt_nombresimular.setText(jl_simulacion2.getSelectedValue());
+            jt_nombresimular.setForeground(Color.RED);
+            if (pro <= 8) {
+                list.get(jl_simlacion1.getSelectedIndex()).setHp(list.get(jl_simlacion1.getSelectedIndex()).getHp() - (list.get(jl_simulacion2.getSelectedIndex()).getAgilidadmental() / 2));
+                batalla = jl_simulacion2.getSelectedValue() + "Ataque Normal " + "Vida actual" + list.get(jl_simlacion1.getSelectedIndex()).getHp() + "Ingremento de vida para" + jl_simulacion2.getSelectedValue()
+                        + list.get(jl_simulacion2.getSelectedIndex()).getHp() / 4 + "\n";
+                jta_batlla.setText(batalla);
+                list.get(jl_simulacion2.getSelectedIndex()).setHp(list.get(jl_simulacion2.getSelectedIndex()).getHp() / 4);
+            } else {
+                list.get(jl_simlacion1.getSelectedIndex()).setHp(list.get(jl_simlacion1.getSelectedIndex()).getHp() - (list.get(jl_simulacion2.getSelectedIndex()).getAgilidadmental() / 2));
+                batalla = jl_simulacion2.getSelectedValue() + "Ataque Normal" + (list.get(jl_simulacion2.getSelectedIndex()).getAgilidadmental() / 2) + "Vida actual" + list.get(jl_simlacion1.getSelectedIndex()).getHp() + "\n";
+                jta_batlla.setText(batalla);
+            }
+            turno = 1;
+        } else {
+            if (list.get(jl_simulacion2.getSelectedIndex()).getHp() <= 0) {
+                JOptionPane.showMessageDialog(this, jl_simlacion1.getSelectedValue() + "Es el ganador");
+            } else if (list.get(jl_simlacion1.getSelectedIndex()).getHp() <= 0) {
+                JOptionPane.showMessageDialog(this, jl_simulacion2.getSelectedValue() + "Es el ganador");
+            }
+        }
+    }//GEN-LAST:event_jb_fuerzaMouseClicked
+
+    private void jb_menteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_menteMouseClicked
+        // TODO add your handling code here:
+        int pro = 1 + r.nextInt(100);
+        if (turno == 1 && list.get(jl_simulacion2.getSelectedIndex()).getHp() > 0 && res1==0) {
+            jt_nombresimular.setText(jl_simlacion1.getSelectedValue());
+            jt_nombresimular.setForeground(Color.GREEN);
+            if (pro <= 15) {
+                list.get(jl_simulacion2.getSelectedIndex()).setHp(list.get(jl_simulacion2.getSelectedIndex()).getHp() - ((list.get(jl_simlacion1.getSelectedIndex()).getAgilidadmental() / 3) * 2));
+                batalla = jl_simlacion1.getSelectedValue() + "Ataque doble " + "Vida actual" + list.get(jl_simulacion2.getSelectedIndex()).getHp() + "\n";
+                jta_batlla.setText(batalla);
+            } else {
+                list.get(jl_simulacion2.getSelectedIndex()).setHp(list.get(jl_simulacion2.getSelectedIndex()).getHp() - (list.get(jl_simlacion1.getSelectedIndex()).getAgilidadmental() / 3));
+                batalla = jl_simlacion1.getSelectedValue() + "Ataque Normal" + "Vida actual" + list.get(jl_simulacion2.getSelectedIndex()).getHp() + "\n";
+                jta_batlla.setText(batalla);
+            }
+            if(res2==1){
+            turno = 1;
+            res2=0;
+            }else{
+              turno=2;  
+            }
+            
+        } else if (turno == 2 && list.get(jl_simlacion1.getSelectedIndex()).getHp() > 0 &&res2==0) {
+            jt_nombresimular.setText(jl_simulacion2.getSelectedValue());
+            jt_nombresimular.setForeground(Color.RED);
+            if (pro <= 15) {
+                list.get(jl_simlacion1.getSelectedIndex()).setHp(list.get(jl_simlacion1.getSelectedIndex()).getHp() - ((list.get(jl_simulacion2.getSelectedIndex()).getAgilidadmental() / 3) * 2));
+                batalla = jl_simlacion1.getSelectedValue() + "Ataque doble " + ((list.get(jl_simulacion2.getSelectedIndex()).getAgilidadmental() / 3) * 2)
+                        + "Vida actual" + list.get(jl_simlacion1.getSelectedIndex()).getHp() + "\n";
+                jta_batlla.setText(batalla);
+            } else {
+                list.get(jl_simlacion1.getSelectedIndex()).setHp(
+                        list.get(jl_simlacion1.getSelectedIndex()).getHp()
+                        - (list.get(jl_simulacion2.getSelectedIndex()).getAgilidadmental() / 3));
+                batalla = jl_simulacion2.getSelectedValue() + "Ataque Normal" + (list.get(jl_simulacion2.getSelectedIndex()).getAgilidadmental() / 3)
+                        + "Vida actual" + list.get(jl_simlacion1.getSelectedIndex()).getHp() + "\n";
+                jta_batlla.setText(batalla);
+            }
+            if(res1==1){
+            turno = 2;
+            res1=0;
+            }else{
+              turno=1;  
+            }
+           
+        } else {
+            if (list.get(jl_simulacion2.getSelectedIndex()).getHp() <= 0) {
+                JOptionPane.showMessageDialog(this, jl_simlacion1.getSelectedValue() + "Es el ganador");
+            } else if (list.get(jl_simlacion1.getSelectedIndex()).getHp() <= 0) {
+                JOptionPane.showMessageDialog(this, jl_simulacion2.getSelectedValue() + "Es el ganador");
+            }
+        }
+    }//GEN-LAST:event_jb_menteMouseClicked
+
+    private void jb_resistenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_resistenciaMouseClicked
+        // TODO add your handling code here:
+        if (turno == 1 && list.get(jl_simulacion2.getSelectedIndex()).getHp() > 0) {
+            jt_nombresimular.setText(jl_simlacion1.getSelectedValue());
+            jt_nombresimular.setForeground(Color.GREEN);
+            batalla=jl_simlacion1.getSelectedValue() + "Pierde turno la siguiente ronda pero incremento su vida un " + list.get(jl_simlacion1.getSelectedIndex()).getHp() * 0.15 + list.get(jl_simlacion1.getSelectedIndex()).getHp()+"\n";
+            jta_batlla.setText(batalla);
+            list.get(jl_simlacion1.getSelectedIndex()).setHp((int) (list.get(jl_simlacion1.getSelectedIndex()).getHp() * 0.15) + list.get(jl_simlacion1.getSelectedIndex()).getHp());
+            res1 = 1;
+            turno = 2;
+        } else if (turno == 2 && list.get(jl_simlacion1.getSelectedIndex()).getHp() > 0) {
+            jt_nombresimular.setText(jl_simulacion2.getSelectedValue());
+            jt_nombresimular.setForeground(Color.RED);
+            batalla=jl_simulacion2.getSelectedValue() + "Pierde turno la siguiente ronda pero incremento su vida" + list.get(jl_simulacion2.getSelectedIndex()).getHp() * 0.15 + list.get(jl_simulacion2.getSelectedIndex()).getHp()+"\n";
+            jta_batlla.setText(batalla);
+            list.get(jl_simulacion2.getSelectedIndex()).setHp((int) (list.get(jl_simulacion2.getSelectedIndex()).getHp() * 0.15) + list.get(jl_simulacion2.getSelectedIndex()).getHp());
+            res2 = 1;
+            turno = 1;
+        } else {
+            if (list.get(jl_simulacion2.getSelectedIndex()).getHp() <= 0) {
+                JOptionPane.showMessageDialog(this, jl_simlacion1.getSelectedValue() + "Es el ganador");
+            } else if (list.get(jl_simlacion1.getSelectedIndex()).getHp() <= 0) {
+                JOptionPane.showMessageDialog(this, jl_simulacion2.getSelectedValue() + "Es el ganador");
+            }
+        }
+    }//GEN-LAST:event_jb_resistenciaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -493,28 +793,28 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -526,11 +826,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jb_Listar;
     private javax.swing.JButton jb_Simular;
     private javax.swing.JButton jb_agregar;
+    private javax.swing.JButton jb_fuerza;
+    private javax.swing.JButton jb_mente;
+    private javax.swing.JButton jb_resistencia;
+    private javax.swing.JComboBox<String> jcb_simulacion1;
+    private javax.swing.JComboBox<String> jcb_simulacion2;
     private javax.swing.JComboBox<String> jcb_universo;
     private javax.swing.JDialog jd_Agregar;
     private javax.swing.JDialog jd_listar;
+    private javax.swing.JDialog jd_pelea;
     private javax.swing.JDialog jd_simular;
     private javax.swing.JList<String> jl_Listar;
+    private javax.swing.JList<String> jl_simlacion1;
+    private javax.swing.JList<String> jl_simulacion2;
     private javax.swing.JMenuItem jm_listar;
     private javax.swing.JMenuItem jm_listarp;
     private javax.swing.JMenuItem jm_remove;
@@ -541,9 +849,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jt_fuerza;
     private javax.swing.JTextField jt_mental;
     private javax.swing.JTextField jt_nombre;
+    private javax.swing.JTextField jt_nombresimular;
     private javax.swing.JTextField jt_poder;
     private javax.swing.JTree jt_universos;
     private javax.swing.JTextField jt_vida;
+    private javax.swing.JTextArea jta_batlla;
     private javax.swing.JTextField tf_nombrelistar;
     // End of variables declaration//GEN-END:variables
+int turno = 1;
+    Random r = new Random();
+   int res1=0 , res2=0;
+    String batalla = "";
+
 }
